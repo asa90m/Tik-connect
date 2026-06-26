@@ -26,10 +26,12 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    # هذه الخطوة ستقوم بنسخ كل ملفات مشروعك تلقائياً إلى مجلد www لتظهر الواجهة فوراً
     - name: Prepare Web Directory
       run: |
         mkdir -p www
-        cp index.html www/
+        find . -maxdepth 1 -type f -not -name "package*.json" -not -name "capacitor.config.json" -exec cp {} www/ \;
+        cp -r assets www/ 2>/dev/null || true
 
     - name: Install Dependencies
       run: |
