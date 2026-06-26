@@ -26,6 +26,13 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    # خطوة ذكية لتنظيم المجلدات تلقائياً وتجنب الانهيار
+    - name: Prepare Web Directory
+      run: |
+        mkdir -p www
+        cp index.html www/
+        sed -i 's/"webDir": "."/"webDir": "www"/g' capacitor.config.json
+
     - name: Install Dependencies
       run: |
         npm install
