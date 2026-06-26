@@ -1,5 +1,21 @@
 {
-  "appId": "com.tikconnect.sharabi.app",
-  "appName": "Tik-connect",
-  "webDir": "www"
+  "appId": "com.mikrotik.admin",
+  "appName": "MikroTik-Admin",
+  "webDir": "frontend",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#0E7C86",
+      "showSpinner": false
+    }
+  }
 }
