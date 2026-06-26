@@ -1,5 +1,6 @@
 {
   "appId": "com.tikconnect.sharabi.app",
   "appName": "Tik-connect",
-  "webDir": "."
+  "webDir": "www",
+  "bundledWebRuntime": false
 }
