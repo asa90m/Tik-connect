@@ -26,12 +26,10 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    # خطوة ذكية لتنظيم المجلدات تلقائياً وتجنب الانهيار
     - name: Prepare Web Directory
       run: |
         mkdir -p www
         cp index.html www/
-        sed -i 's/"webDir": "."/"webDir": "www"/g' capacitor.config.json
 
     - name: Install Dependencies
       run: |
@@ -41,6 +39,8 @@ jobs:
     - name: Initialize Capacitor Android
       run: |
         npx cap add android || true
+        mkdir -p android/app/src/main/assets/public
+        cp -r www/* android/app/src/main/assets/public/
         npx cap sync android
 
     - name: Build APK with Gradle
